@@ -1,0 +1,509 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    gap: 40px;
+}
+
+.left, .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Typography */
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.happy, .birthday {
+    font-family: 'Dancing Script', cursive;
+    font-size: 80px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+}
+
+.happy span, .birthday span {
+    display: inline-block;
+    animation: bounce var(--t, 1s) ease-in-out forwards;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); opacity: 0; }
+    50% { transform: translateY(-20px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hat {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: wobble 2s ease-in-out infinite;
+}
+
+@keyframes wobble {
+    0%, 100% { transform: translateX(-50%) rotate(-5deg); }
+    50% { transform: translateX(-50%) rotate(5deg); }
+}
+
+/* Date Section */
+.date__of__birth {
+    font-size: 24px;
+    color: #fff;
+    margin: 20px 0;
+    letter-spacing: 2px;
+    min-height: 40px;
+}
+
+.date__of__birth i {
+    color: #ffd700;
+    margin: 0 5px;
+    animation: twinkle 1.5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Button */
+.btn {
+    margin-top: 30px;
+}
+
+#btn__letter {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#btn__letter:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+#btn__letter:active {
+    transform: translateY(-1px);
+}
+
+.mail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Right Side - Account Box */
+.box__account {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
+.image {
+    margin-bottom: 20px;
+}
+
+.image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    object-fit: cover;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.name {
+    font-size: 24px;
+    color: white;
+    margin: 15px 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.name i {
+    color: #ff6b9d;
+    animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.3); }
+    50% { transform: scale(1); }
+}
+
+/* Balloons */
+.balloon_one, .balloon_two {
+    position: absolute;
+    animation: float 4s ease-in-out infinite;
+}
+
+.balloon_one {
+    top: -50px;
+    left: 20px;
+    animation-delay: 0s;
+}
+
+.balloon_two {
+    top: -50px;
+    right: 20px;
+    animation-delay: 1s;
+}
+
+/* Circle Text */
+.cricle {
+    margin-top: 30px;
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.text__cricle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: spin 8s linear infinite;
+}
+
+.text__cricle span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 24deg)) translateX(80px);
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.cricle i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #ff6b9d;
+    animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+/* Flags */
+.flag__birthday {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.flag__left, .flag__right {
+    opacity: 0.6;
+    animation: wave 2s ease-in-out infinite;
+}
+
+.flag__right {
+    animation-delay: 0.5s;
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+/* Decorations */
+.decorate_star {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #ffd700, #ffed4e);
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffd700;
+    animation: twinkle 1.5s ease-in-out infinite;
+    z-index: 3;
+}
+
+.star1 { top: 10%; left: 10%; }
+.star2 { top: 20%; right: 15%; }
+.star3 { bottom: 30%; left: 5%; }
+.star4 { bottom: 15%; right: 10%; }
+.star5 { top: 50%; right: 5%; }
+
+.decorate_flower--one, .decorate_flower--two, .decorate_flower--three {
+    position: absolute;
+    animation: float 4s ease-in-out infinite;
+    z-index: 2;
+}
+
+.decorate_flower--one { top: 15%; left: 5%; }
+.decorate_flower--two { top: 70%; right: 8%; animation-delay: 0.5s; }
+.decorate_flower--three { bottom: 20%; left: 10%; animation-delay: 1s; }
+
+.decorate_bottom {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.smiley__icon {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    opacity: 0.6;
+    animation: bounce 2s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* Mail Box */
+.boxMail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.boxMail.active {
+    display: flex;
+}
+
+.fa-xmark {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.fa-xmark:hover {
+    transform: rotate(90deg);
+    color: #ff6b9d;
+}
+
+.boxMail-container {
+    display: flex;
+    gap: 30px;
+    width: 90%;
+    max-width: 900px;
+    perspective: 1000px;
+}
+
+.card1, .card2 {
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s ease-out;
+}
+
+.card2 {
+    animation-delay: 0.2s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.userImg img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    display: block;
+    border: 3px solid #ff6b9d;
+}
+
+.username {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.underline {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 30%;
+    height: 2px;
+    background: #ff6b9d;
+    transform: translateX(-50%);
+}
+
+.card1 h3, .card2 h3 {
+    font-size: 24px;
+    color: #ff6b9d;
+    margin-bottom: 15px;
+}
+
+.card2 h2 {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.imageCute, .imageCute2 {
+    margin-top: 20px;
+}
+
+.imageCute img, .imageCute2 img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .happy, .birthday {
+        font-size: 50px;
+    }
+
+    .hat img {
+        width: 80px;
+    }
+
+    .flag__left, .flag__right {
+        width: 200px;
+    }
+
+    .boxMail-container {
+        flex-direction: column;
+    }
+
+    .cricle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .text__cricle span {
+        font-size: 18px;
+        transform: translate(-50%, -50%) rotate(calc(var(--i) * 24deg)) translateX(60px);
+    }
+}
+
+@media (max-width: 480px) {
+    .happy, .birthday {
+        font-size: 35px;
+    }
+
+    .date__of__birth {
+        font-size: 18px;
+    }
+
+    #btn__letter {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+
+    .box__account {
+        padding: 20px;
+    }
+
+    .image img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cricle {
+        width: 120px;
+        height: 120px;
+    }
+}
